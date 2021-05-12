@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>filter HOF</h1>
+    <script src="lib.js"></script>
+    <script>
+        var data = [6, 41, 2, 11, 77];
+
+        var products = [
+            { "id": 1, "name": "iPhone", "price": 124447.44, "category": "mobile" },
+            { "id": 2, "name": "Onida", "price": 4444.44, "category": "tv" },
+            { "id": 3, "name": "OnePlus 6", "price": 98444.44, "category": "mobile" },
+            { "id": 4, "name": "HDMI connector", "price": 2444.00, "category": "computer" },
+            { "id": 5, "name": "Samsung", "price": 68000.00, "category": "tv" }];
+
+       var res = filter(data, function(elem) { return elem %2 === 0});
+
+        forEach(res, console.log);
+        res = filter(products, function(e) { return e.category === 'mobile'});
+        forEach(res, console.log);
+
+
+        var names = map(products, function(elem) { return elem.name});
+        forEach(names, console.log);
+        
+    </script>
+</body>
+
+</html>

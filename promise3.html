@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promise API</h1>
+    <script>
+        function doTask() {
+            return new Promise( (resolve, reject) => {
+                //setTimeout(() => resolve("All Good from one!!!"), 1000)
+                 setTimeout(() => reject("Not Found"), 1000)
+            });
+        }
+
+        function doAnotherTask() {
+            return new Promise( (resolve, reject) => {
+                setTimeout(() => resolve("Hello from two!!!"), 2000)
+                // setTimeout(() => reject("Not Found"), 1000)
+            });
+        }
+        
+        // Promise.all([doTask(), doAnotherTask()]).then(values => {
+        //     console.log(values[0], values[1])
+        // });
+        
+        // same content available in differnet CDN
+        Promise.race([doTask(), doAnotherTask()]).then(value => {
+            console.log(value)
+        });
+        console.log("Bye!!!"); // not blocked
+    </script>
+</body>
+</html>
